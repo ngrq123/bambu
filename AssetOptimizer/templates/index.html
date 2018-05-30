@@ -1,0 +1,216 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+ <form class="form-basic" method="post" action="/userinfo"> {% csrf_token %}
+
+            <div class="form-title-row">
+                <h1><b>min(sum(4u))</b></h1>
+            </div>
+
+            <div class="form-row">
+                <label for="name">
+                    <span>Full Name</span>
+                    <input type="text" name="name">
+                </label>
+            </div>
+
+            <div class="form-row">
+            <label for="dob">
+            <span><h4><b>Date of Birth</b></h4></span>
+            </label>
+
+                <label for="dob_year">
+                    <span>Year (yyyy)</span>
+                    <input type="text" name="dob_year">
+                </label>
+                <label for="dob_month">
+                    <span>Month (mm)</span>
+                    <input type="text" name="dob_month">
+                </label>
+                <label for="dob_day">
+                    <span>Day (dd)</span>
+                    <input type="text" name="dob_day">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="age">
+                    <span>Age</span>
+                    <input type="text" name="age">
+                </label><!--
+                <label for="gage">
+                    <span>Planned Retirement Age</span>
+                    <input type="text" name="gage">
+                </label>
+            </div>-->
+
+            <div class="form-row">
+                <label for="gender">
+                    <span>Gender</span>
+                    <select name="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="salary">
+                    <span>Monthly Salary ($)</span>
+                    <input type="text" name="salary">
+                </label>
+                <label for="bonus">
+                    <span>Monthly Bonus ($)</span>
+                    <input type="text" name="bonus">
+                </label>
+            </div>
+
+            <div class="form-title-row">
+                <h3>CPF Info</h3>
+            </div>
+
+            <div class="form-row">
+                <label for="cab">
+                    <span>Current Account Balance ($)</span>
+                    <input type="text" name="cab">
+                </label>
+                <label for="mab">
+                    <span>Medisafe Account Balance ($)</span>
+                    <input type="text" name="mab">
+                </label>
+                <label for="sab">
+                    <span>Special Account Balance ($)</span>
+                    <input type="text" name="sab">
+                </label>
+            </div>
+
+
+            <div class="form-title-row">
+                <h3>Basic Usage</h3>
+            </div>
+
+            <div class="form-row">
+                <label for="ahdb">
+                    <span>Age To Buy HDB</span>
+                    <input type="text" name="ahdb">
+                </label>
+                <label for="houseAmount">
+                    <span>House Amount ($)</span>
+                    <input type="text" name="houseAmount">
+                </label>
+                <label for="dpp">
+                    <span>Down Payment %</span>
+                    <select name="dpp">
+                        <option value="0.1">10%</option>
+                        <option value="0.2">20%</option>
+                        <option value="0.3">30%</option>
+                        <option value="0.4">40%</option>
+                        <option value="0.5">50%</option>
+                        <option value="0.6">60%</option>
+                        <option value="0.7">70%</option>
+                        <option value="0.8">80%</option>
+                        <option value="0.9">90%</option>
+                    </select>
+                </label>
+                <label for="yearsToGo">
+                    <span>Years To Go</span>
+                    <input type="text" name="yearsToGo">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="hdb">
+                    <span>Planned HDB</span>
+                    <select name="hdb">
+                        <option>3 Room</option>
+                        <option>4 Room</option>
+                        <option>5 Room</option>
+                        <option>Mansionette</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="investment">
+                    <span>Amount Planned for Investment ($)</span>
+                    <input type="text" name="investment">
+                </label>
+            </div>
+            <!--
+            <div class="form-row">
+                <label for="save">
+                    <span>Plan to save % of Salary</span>
+                    <select name="save">
+                        <option>10%</option>
+                        <option>20%</option>
+                        <option>30%</option>
+                        <option>40%</option>
+                        <option>50%</option>
+                        <option>60%</option>
+                        <option>70%</option>
+                        <option>80%</option>
+                        <option>90%</option>
+                    </select>
+                </label>
+            </div>
+            -->
+            <div class="form-title-row">
+                <h3>Insurance</h3>
+            </div>
+
+            <div class="form-row">
+                <label for="plan">
+                    <span>Plan Type</span>
+                    <select name="plan">
+                        <option>Basic</option>
+                        <option>Preferred</option>
+                        <option>Advantage</option>
+                        <option>Enhanced C</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="sum">
+                    <span>Sum Assured ($)</span>
+                    <input type="text" name="sum">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="premiums">
+                    <table>
+                    <tr><td>
+                    <span>Insurance Premiums</span>
+                    </td><td>
+                        <input type="checkbox" name="premiums" value="1">
+                        <label>Medisave Life Premium</label>
+                    <br>
+                        <input type="checkbox" name="premiums" value="2">
+                        <label>Plus Rider Premium</label>
+                    <br>
+                        <input type="checkbox" name="premiums" value="3">
+                        <label>Assist Rider Premium</label>
+                    </td><td>
+                        <input type="checkbox" name="premiums" value="4">
+                        <label>Cash Rider Premium</label>
+                    <br>
+                        <input type="checkbox" name="premiums" value="5">
+                        <label>Term Life Premium</label>
+                    <br>
+                        <input type="checkbox" name="premiums" value="6">
+                        <label>Term CI Premium</label>
+                    </td>
+                   </table>
+                </label>
+            </div>
+            <div class="form-row">
+                <button type="submit">Analyse!</button>
+            </div>
+
+
+
+        </form>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<div class="form-basic">
+    <div class="form-title-row">
+        <h1>Forecast Overview</h1>
+    </div>
+    <div class="form-row">
+        <center>
+            CPF Retirement Sum: ${{cpf_min_sum}}
+            <br><br><u>Predicted CPF Allocation</u>
+        </center>
+    </div>
+    <div class="form-row">
+        <center>
+            Before Housing and Insurance Deduction
+            {% load static %}<img src ="{% static 'foo.png' %}" width="95%"></img>
+        </center>
+    </div>
+    <div class="form-row">
+        <center>
+            After Housing and Insurance Deduction
+            {% load static %}<img src ="{% static 'foo2.png' %}" width="95%"></img>
+        </center>
+    </div>
+    <div class="form-row">
+        <center>
+            {% load static %}<img src ="{% static 'pie.png' %}" width="95%"></img>
+        </center>
+    </div>
+    <div class="form-row">
+        <center>
+            <ul><span>Planned HDB: {{housetype}}</span><br>
+            <span>Insurance Plans: NTUC Income</span></ul>
+        </center>
+    </div>
+    <div class="form-title-row">
+        <h1>Analysis</h1>
+    </div>
+    <div class="form-row">
+        <ul><span>Recommended HDB is a 3-Room flat</span><br>
+        <span>Amount for CPF investments should be lower</span></ul>
+    </div>
+    <div class="form-row">
+        <center>
+            CPF Breakdown
+            <table border="1">
+            <tr>
+                <th style="text-align:center">Age</th>
+                <th style="text-align:center">Ordinary Account</th> 
+                <th style="text-align:center">Medisave Account</th>
+                <th style="text-align:center">Special Account</th>
+            </tr>
+            {% for key, value in cpf_account_balances.items %}
+            {% if key >= age %}
+                <tr>
+                <td align="center">{{ key }}</td>
+                <td align="center">${{ value.0| floatformat:"0" }}</td>
+                <td align="center">${{ value.1| floatformat:"0" }}</td>
+                <td align="center">${{ value.2| floatformat:"0" }}</td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+            </table>
+        </center>
+    </div>
+</div>
+{% endblock %}
